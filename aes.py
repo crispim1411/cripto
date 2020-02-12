@@ -2,7 +2,6 @@ import os
 import base64
 import hashlib
 from Crypto.Cipher import AES
-from content_manager import read_content, save_content
 
 PBKDF2_ITERATIONS = 32767
 SALT_SIZE = 16
@@ -47,26 +46,6 @@ class AESCipher:
         return bytes.decode(plain_bytes)
 
 
-if __name__ == '__main__':
-    plain_text = "suco de maracujá, suco de melão"
-    secret_key = "t6y7"
-
-    os.chdir("../crypt_java/crypt")
-
-    cipher = AESCipher(secret_key)
-
-    # Python -> Java
-    ciphertext_python = cipher.encrypt(plain_text)
-    save_content(ciphertext_python)
-    decrypted_python = cipher.decrypt(ciphertext_python)
-    print(f"Cipher by Python: {ciphertext_python}")
-    print(f"Decrypted: {decrypted_python}\n")
-
-    # Java -> Python
-    ciphertext_java = read_content()
-    decrypted_java = cipher.decrypt(ciphertext_java)
-    print(f"Cipher by Java: {ciphertext_java}")
-    print(f"Decrypted: {decrypted_java}")
 
 
 
