@@ -14,16 +14,14 @@ Exemplo de utilização
 ----------------------
 ::
 
-    from aes import AESCipher
+    from aes_cbc import encrypt, decrypt
 
-    plaintext = "Teste criptografia AES-CBC em Python"
+    message = "Teste criptografia AES-CBC em Python"
     password = "senhaexemplo123"
 
-    cipher = AESCipher(password)
+    ciphertext = encrypt(message, password)
+    plaintext = decrypt(ciphertext, password)
 
-    ciphertext = cipher.encrypt(plaintext)
-    decrypted = cipher.decrypt(ciphertext)
-
-    print(f"texto: {plaintext}")
-    print(f"texto cifrado: {ciphertext}")
-    print(f"texto decifrado: {decrypted}")
+    print(f"mensagem original: {message}")
+    print(f"mensagem cifrada: {ciphertext}")
+    print(f"mensagem decifrada: {decrypted}")
