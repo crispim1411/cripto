@@ -12,7 +12,7 @@ Código para encriptação simétrica utilizado Advanced Encryption Standard(AES
 
 Exemplo de utilização
 ----------------------
-::
+.. code-block:: python
 
     from aes_cbc import encrypt, decrypt
 
